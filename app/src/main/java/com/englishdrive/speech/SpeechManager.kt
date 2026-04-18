@@ -150,7 +150,7 @@ class SpeechManager(private val context: Context) {
                 RecognizerIntent.LANGUAGE_MODEL_FREE_FORM)
             putExtra(RecognizerIntent.EXTRA_LANGUAGE, "en-GB")
             putExtra(RecognizerIntent.EXTRA_LANGUAGE_PREFERENCE, "en-GB")
-            putExtra(RecognizerIntent.EXTRA_ONLY_RETURN_LANGUAGE_SPECIFIC_RESULTS, true)
+            putExtra(RecognizerIntent.EXTRA_PREFER_OFFLINE, false)
             putExtra(RecognizerIntent.EXTRA_MAX_RESULTS, 1)
             putExtra(RecognizerIntent.EXTRA_PARTIAL_RESULTS, false)
             putExtra(RecognizerIntent.EXTRA_SPEECH_INPUT_MINIMUM_LENGTH_MILLIS, 800L)
