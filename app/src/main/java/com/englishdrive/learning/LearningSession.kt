@@ -187,7 +187,7 @@ class LearningSession(private val context: Context) {
         }
 
         speechManager.onError = { error ->
-            if (!isSessionActive) return@onError
+            if (!isSessionActive) return@apply
             when (error) {
                 "no_match" -> emmaSpeak(
                     "I'm sorry, I didn't quite catch that. Could you say that again, please?"
