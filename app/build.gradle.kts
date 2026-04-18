@@ -52,7 +52,7 @@ dependencies {
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3")
 
     // Android Auto – Car App Library
-    implementation("androidx.car.app:car-app-library:1.4.0")
+    implementation("androidx.car.app:app:1.4.0")
 
     // HTTP client for Gemini API
     implementation("com.squareup.okhttp3:okhttp:4.12.0")
