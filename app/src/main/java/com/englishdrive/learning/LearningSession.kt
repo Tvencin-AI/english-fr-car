@@ -187,20 +187,20 @@ class LearningSession(private val context: Context) {
         }
 
         speechManager.onError = { error ->
-            if (!isSessionActive) return@apply
-            when (error) {
-                "no_match" -> emmaSpeak(
-                    "I'm sorry, I didn't quite catch that. Could you say that again, please?"
-                ) { startListening() }
+            if (isSessionActive) {
+                when (error) {
+                    "no_match" -> emmaSpeak(
+                        "I'm sorry, I didn't quite catch that. Could you say that again, please?"
+                    ) { startListening() }
 
-                "speech_timeout" -> emmaSpeak(
-                    "Take your time — I'm right here whenever you're ready."
-                ) { startListening() }
+                    "speech_timeout" -> emmaSpeak(
+                        "Take your time — I'm right here whenever you're ready."
+                    ) { startListening() }
 
-                else -> { setState(SessionState.ERROR); onError?.invoke(error) }
+                    else -> { setState(SessionState.ERROR); onError?.invoke(error) }
+                }
             }
         }
-    }
 
     // ── Input routing ─────────────────────────────────────────────────────────
 
