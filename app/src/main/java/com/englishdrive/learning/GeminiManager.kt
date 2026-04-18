@@ -24,7 +24,7 @@ class GeminiManager(private val context: Context) {
 
     companion object {
         private const val API_BASE =
-            "https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-8b:generateContent"
+            "https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent"
         private const val PREFS         = "english_drive_prefs"
         private const val KEY_API_KEY   = "gemini_api_key"
         private const val MAX_HISTORY   = 24   // 12 exchanges
