@@ -5,58 +5,39 @@
     android:viewportWidth="108"
     android:viewportHeight="108">
 
-    <!-- Background -->
-    <path
-        android:fillColor="#0D1117"
-        android:pathData="M0,0 L108,0 L108,108 L0,108 Z"/>
-
-    <!-- Steering wheel outer ring -->
-    <path
-        android:strokeColor="#58A6FF"
-        android:strokeWidth="4"
-        android:fillColor="#00000000"
-        android:pathData="M54,20 A34,34 0 1,1 53.99,20 Z"/>
-
-    <!-- Steering wheel spokes -->
-    <line
-        android:x1="54" android:y1="20"
-        android:x2="54" android:y2="38"
-        android:strokeColor="#58A6FF"
-        android:strokeWidth="3.5"/>
-    <line
-        android:x1="20" android:y1="60"
-        android:x2="38" android:y2="52"
-        android:strokeColor="#58A6FF"
-        android:strokeWidth="3.5"/>
-    <line
-        android:x1="88" android:y1="60"
-        android:x2="70" android:y2="52"
-        android:strokeColor="#58A6FF"
-        android:strokeWidth="3.5"/>
-
-    <!-- Centre hub -->
     <path
         android:fillColor="#58A6FF"
-        android:pathData="M54,48 A6,6 0 1,1 53.99,48 Z"/>
+        android:pathData="M54,20 m-34,0 a34,34 0 1,0 68,0 a34,34 0 1,0 -68,0"/>
 
-    <!-- GB label -->
+    <path
+        android:fillColor="#0D1117"
+        android:pathData="M54,20 m-26,0 a26,26 0 1,0 52,0 a26,26 0 1,0 -52,0"/>
+
+    <path
+        android:fillColor="#58A6FF"
+        android:pathData="M54,36 L54,54 M54,54 L42,62 M54,54 L66,62"
+        android:strokeColor="#58A6FF"
+        android:strokeWidth="4"
+        android:strokeLineCap="round"/>
+
+    <path
+        android:fillColor="#58A6FF"
+        android:pathData="M50,52 m-4,0 a4,4 0 1,0 8,0 a4,4 0 1,0 -8,0"/>
+
     <path
         android:fillColor="#FFFFFF"
-        android:pathData="M38,78 L42,78 L42,90 L38,90 Z"/>
+        android:pathData="M36,80 L36,90 L40,90 L40,80 Z"/>
     <path
         android:fillColor="#FFFFFF"
-        android:pathData="M44,78 L48,78 L48,90 L44,90 Z"/>
+        android:pathData="M43,80 L43,90 L47,90 L47,80 Z"/>
     <path
         android:fillColor="#FFFFFF"
-        android:pathData="M52,78 L70,78 L70,82 L52,82 Z"/>
+        android:pathData="M51,80 L71,80 L71,84 L51,84 Z"/>
     <path
         android:fillColor="#FFFFFF"
-        android:pathData="M52,84 L65,84 L65,88 L52,88 Z"/>
+        android:pathData="M51,84 L64,84 L64,88 L51,88 Z"/>
     <path
         android:fillColor="#FFFFFF"
-        android:pathData="M52,82 L56,82 L56,84 L52,84 Z"/>
-    <path
-        android:fillColor="#FFFFFF"
-        android:pathData="M66,82 L70,82 L70,90 L66,90 Z"/>
+        android:pathData="M67,80 L71,80 L71,90 L67,90 Z"/>
 
 </vector>
