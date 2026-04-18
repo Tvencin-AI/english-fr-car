@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+
+    <!-- Background -->
+    <path
+        android:fillColor="#0D1117"
+        android:pathData="M0,0 L108,0 L108,108 L0,108 Z"/>
+
+    <!-- Steering wheel outer ring -->
+    <path
+        android:strokeColor="#58A6FF"
+        android:strokeWidth="4"
+        android:fillColor="#00000000"
+        android:pathData="M54,20 A34,34 0 1,1 53.99,20 Z"/>
+
+    <!-- Steering wheel spokes -->
+    <line
+        android:x1="54" android:y1="20"
+        android:x2="54" android:y2="38"
+        android:strokeColor="#58A6FF"
+        android:strokeWidth="3.5"/>
+    <line
+        android:x1="20" android:y1="60"
+        android:x2="38" android:y2="52"
+        android:strokeColor="#58A6FF"
+        android:strokeWidth="3.5"/>
+    <line
+        android:x1="88" android:y1="60"
+        android:x2="70" android:y2="52"
+        android:strokeColor="#58A6FF"
+        android:strokeWidth="3.5"/>
+
+    <!-- Centre hub -->
+    <path
+        android:fillColor="#58A6FF"
+        android:pathData="M54,48 A6,6 0 1,1 53.99,48 Z"/>
+
+    <!-- GB label -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M38,78 L42,78 L42,90 L38,90 Z"/>
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M44,78 L48,78 L48,90 L44,90 Z"/>
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M52,78 L70,78 L70,82 L52,82 Z"/>
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M52,84 L65,84 L65,88 L52,88 Z"/>
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M52,82 L56,82 L56,84 L52,84 Z"/>
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M66,82 L70,82 L70,90 L66,90 Z"/>
+
+</vector>

@@ -1,0 +1,340 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#0D1117">
+
+    <!-- ══════════════════════════════════════════════════════ -->
+    <!--  HEADER                                               -->
+    <!-- ══════════════════════════════════════════════════════ -->
+
+    <TextView
+        android:id="@+id/tvTitle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="🇬🇧  English Drive"
+        android:textColor="#58A6FF"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        android:paddingHorizontal="16dp"
+        android:paddingTop="14dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/btnSettings"/>
+
+    <!-- Settings button (top-right) -->
+    <Button
+        android:id="@+id/btnSettings"
+        android:layout_width="44dp"
+        android:layout_height="44dp"
+        android:text="🔑"
+        android:textSize="16sp"
+        android:backgroundTint="#21262D"
+        android:paddingTop="14dp"
+        android:paddingEnd="14dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        style="@style/Widget.MaterialComponents.Button.TextButton"/>
+
+    <!-- ══════════════════════════════════════════════════════ -->
+    <!--  LEVEL BAR                                            -->
+    <!-- ══════════════════════════════════════════════════════ -->
+
+    <!-- Level badge text -->
+    <TextView
+        android:id="@+id/tvLevelBadge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Niveau 1  ·  Pre-A1"
+        android:textColor="#C9D1D9"
+        android:textSize="12sp"
+        android:paddingHorizontal="16dp"
+        android:paddingTop="6dp"
+        app:layout_constraintTop_toBottomOf="@id/tvTitle"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+    <!-- Level number right-aligned -->
+    <TextView
+        android:id="@+id/tvLevelNumber"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="1 / 100"
+        android:textColor="#8B949E"
+        android:textSize="12sp"
+        android:paddingHorizontal="16dp"
+        android:paddingTop="6dp"
+        app:layout_constraintTop_toBottomOf="@id/tvTitle"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <!-- Progress bar -->
+    <ProgressBar
+        android:id="@+id/progressLevel"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="0dp"
+        android:layout_height="8dp"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="4dp"
+        android:max="100"
+        android:progress="1"
+        android:progressTint="#58A6FF"
+        android:progressBackgroundTint="#21262D"
+        app:layout_constraintTop_toBottomOf="@id/tvLevelBadge"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <!-- French support badge (visible only for levels 1-5) -->
+    <TextView
+        android:id="@+id/tvFrenchBadge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="🇫🇷  Aide en français activée"
+        android:textColor="#F0883E"
+        android:textSize="11sp"
+        android:paddingHorizontal="16dp"
+        android:paddingTop="3dp"
+        android:visibility="visible"
+        app:layout_constraintTop_toBottomOf="@id/progressLevel"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+    <!-- ══════════════════════════════════════════════════════ -->
+    <!--  STATUS + MIC                                         -->
+    <!-- ══════════════════════════════════════════════════════ -->
+
+    <LinearLayout
+        android:id="@+id/layoutStatus"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingHorizontal="16dp"
+        android:paddingTop="8dp"
+        app:layout_constraintTop_toBottomOf="@id/tvFrenchBadge"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <!-- Pulsing mic dot -->
+        <View
+            android:id="@+id/viewMicIndicator"
+            android:layout_width="10dp"
+            android:layout_height="10dp"
+            android:background="@drawable/ic_mic_dot"
+            android:visibility="gone"
+            android:layout_marginEnd="8dp"/>
+
+        <TextView
+            android:id="@+id/tvStatus"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Prêt — appuyez sur Démarrer"
+            android:textColor="#58A6FF"
+            android:textSize="12sp"
+            android:textStyle="italic"/>
+    </LinearLayout>
+
+    <!-- ══════════════════════════════════════════════════════ -->
+    <!--  CONVERSATION AREA                                    -->
+    <!-- ══════════════════════════════════════════════════════ -->
+
+    <ScrollView
+        android:id="@+id/scrollConversation"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginHorizontal="12dp"
+        android:layout_marginTop="6dp"
+        android:layout_marginBottom="4dp"
+        android:background="#161B22"
+        app:layout_constraintTop_toBottomOf="@id/layoutStatus"
+        app:layout_constraintBottom_toTopOf="@id/cardCommands"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <TextView
+            android:id="@+id/tvConversation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:textColor="#C9D1D9"
+            android:textSize="13sp"
+            android:lineSpacingMultiplier="1.5"
+            android:padding="12dp"
+            android:fontFamily="sans-serif"/>
+    </ScrollView>
+
+    <!-- ══════════════════════════════════════════════════════ -->
+    <!--  VOICE COMMAND BUTTONS PANEL                         -->
+    <!-- ══════════════════════════════════════════════════════ -->
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardCommands"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="12dp"
+        android:layout_marginBottom="4dp"
+        app:cardBackgroundColor="#161B22"
+        app:cardCornerRadius="10dp"
+        app:cardElevation="4dp"
+        app:layout_constraintBottom_toTopOf="@id/layoutMainButtons"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="10dp">
+
+            <!-- Row label -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="COMMANDES VOCALES"
+                android:textColor="#484F58"
+                android:textSize="10sp"
+                android:letterSpacing="0.1"
+                android:layout_marginBottom="8dp"/>
+
+            <!-- Row 1: Repeat · Slower · Progress -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="3"
+                android:layout_marginBottom="6dp">
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnRepeat"
+                    android:layout_width="0dp"
+                    android:layout_height="42dp"
+                    android:layout_weight="1"
+                    android:text="🔁 Répéter"
+                    android:textSize="11sp"
+                    android:textColor="#C9D1D9"
+                    android:layout_marginEnd="5dp"
+                    app:backgroundTint="#21262D"
+                    app:cornerRadius="8dp"
+                    style="@style/Widget.MaterialComponents.Button.OutlinedButton"/>
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnSlower"
+                    android:layout_width="0dp"
+                    android:layout_height="42dp"
+                    android:layout_weight="1"
+                    android:text="🐢 Plus lent"
+                    android:textSize="11sp"
+                    android:textColor="#C9D1D9"
+                    android:layout_marginEnd="5dp"
+                    app:backgroundTint="#21262D"
+                    app:cornerRadius="8dp"
+                    style="@style/Widget.MaterialComponents.Button.OutlinedButton"/>
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnProgress"
+                    android:layout_width="0dp"
+                    android:layout_height="42dp"
+                    android:layout_weight="1"
+                    android:text="📊 Niveau"
+                    android:textSize="11sp"
+                    android:textColor="#C9D1D9"
+                    app:backgroundTint="#21262D"
+                    app:cornerRadius="8dp"
+                    style="@style/Widget.MaterialComponents.Button.OutlinedButton"/>
+            </LinearLayout>
+
+            <!-- Row 2: Level - · Level + · Pause -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="3">
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnLevelDown"
+                    android:layout_width="0dp"
+                    android:layout_height="42dp"
+                    android:layout_weight="1"
+                    android:text="⬇ Niveau -"
+                    android:textSize="11sp"
+                    android:textColor="#F0883E"
+                    android:layout_marginEnd="5dp"
+                    app:backgroundTint="#21262D"
+                    app:strokeColor="#F0883E"
+                    app:strokeWidth="1dp"
+                    app:cornerRadius="8dp"
+                    style="@style/Widget.MaterialComponents.Button.OutlinedButton"/>
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnLevelUp"
+                    android:layout_width="0dp"
+                    android:layout_height="42dp"
+                    android:layout_weight="1"
+                    android:text="⬆ Niveau +"
+                    android:textSize="11sp"
+                    android:textColor="#3FB950"
+                    android:layout_marginEnd="5dp"
+                    app:backgroundTint="#21262D"
+                    app:strokeColor="#3FB950"
+                    app:strokeWidth="1dp"
+                    app:cornerRadius="8dp"
+                    style="@style/Widget.MaterialComponents.Button.OutlinedButton"/>
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnPause"
+                    android:layout_width="0dp"
+                    android:layout_height="42dp"
+                    android:layout_weight="1"
+                    android:text="⏸ Pause"
+                    android:textSize="11sp"
+                    android:textColor="#C9D1D9"
+                    app:backgroundTint="#21262D"
+                    app:cornerRadius="8dp"
+                    style="@style/Widget.MaterialComponents.Button.OutlinedButton"/>
+            </LinearLayout>
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+    <!-- ══════════════════════════════════════════════════════ -->
+    <!--  MAIN BUTTONS (Start / Stop / Clear)                 -->
+    <!-- ══════════════════════════════════════════════════════ -->
+
+    <LinearLayout
+        android:id="@+id/layoutMainButtons"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginHorizontal="12dp"
+        android:layout_marginBottom="12dp"
+        android:weightSum="4"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnStartStop"
+            android:layout_width="0dp"
+            android:layout_height="52dp"
+            android:layout_weight="3"
+            android:text="▶  Démarrer la leçon"
+            android:textColor="#FFFFFF"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:layout_marginEnd="6dp"
+            app:backgroundTint="#238636"
+            app:cornerRadius="10dp"/>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnClear"
+            android:layout_width="0dp"
+            android:layout_height="52dp"
+            android:layout_weight="1"
+            android:text="🗑"
+            android:textSize="18sp"
+            app:backgroundTint="#21262D"
+            app:cornerRadius="10dp"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"/>
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
