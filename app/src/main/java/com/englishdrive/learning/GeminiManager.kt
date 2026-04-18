@@ -63,17 +63,14 @@ class GeminiManager(private val context: Context) {
         try {
             val systemPrompt = buildSystemPrompt(level)
 
-            val msgToSend = if (isFirstMessage) buildStartInstruction(level) else userMessage
-
+            val msgToSend = if (isFirstMessage)
+                "$systemPrompt\n\n---\n\n${buildStartInstruction(level)}"
+            else
+                userMessage
             history.add(contentObj("user", msgToSend))
 
             val body = JSONObject().apply {
-                put("system_instruction", JSONObject().apply {
-                    put("parts", JSONArray().apply {
-                        put(JSONObject().put("text", systemPrompt))
-                    })
-                })
-                put("contents", JSONArray().apply { history.forEach { put(it) } })
+    put("contents", JSONArray().apply { history.forEach { put(it) } })
                 put("generationConfig", JSONObject().apply {
                     put("temperature", 0.88)
                     put("topP", 0.92)
