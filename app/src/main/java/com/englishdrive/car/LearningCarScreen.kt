@@ -123,8 +123,7 @@ class LearningCarScreen(carContext: CarContext) : Screen(carContext) {
             .build()
     }
 
-    override fun onStop() {
-        super.onStop()
+    fun cleanup() {
         session.release()
     }
 }
